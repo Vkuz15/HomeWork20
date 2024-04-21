@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class Employee {
     private String fullName;
-    private double salary;
+    private Integer salary;
     private int department;
     private static int counter;
     private int id;
 
 
-    public Employee(String fullName, double salary, int department) {
+    public Employee(String fullName, Integer salary, int department) {
         this.fullName = fullName;
         this.salary = salary;
         this.department = department;
@@ -21,11 +21,11 @@ public class Employee {
         return fullName;
     }
 
-    public double getSalary() {
+    public Integer getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Integer salary) {
         this.salary = salary;
     }
 
@@ -90,13 +90,6 @@ public class Employee {
         }
     }
 
-    //Middle
-
-    public static void salaryPercentage(Employee[] staff, int percent) {
-        for (Employee i : staff) {
-            i.setSalary(i.getSalary() + i.getSalary() / 100 * percent);
-        }
-    }
 
     @Override
     public boolean equals(Object o) {
