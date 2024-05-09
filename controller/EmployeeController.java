@@ -37,4 +37,6 @@ public class EmployeeController {
     public Map<Integer, List<Employee>> getAllEmployeesDepartment() {
         return employeeService.getAllEmployeesDepatment();
     }
+
+
 }

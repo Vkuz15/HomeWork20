@@ -2,10 +2,13 @@ package service;
 
 import employee.Employee;
 import exception.EmployeeNotFoundException;
+import exception.InvalidNameException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static org.apache.commons.lang3.StringUtils.isAlpha;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -47,9 +50,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee add(String firstName, int department, int salary) {
-        Employee employee = new Employee(firstName, department, salary);
-        employees.add(employee);
-        return employee;
+        return null;
+    }
+
+    @Override
+    public Employee add(String firstName, String lastName) {
+        validateNames(firstName, lastName);
+        return null;
     }
 
     @Override
@@ -80,6 +87,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Collection<Employee> findAll() {
         return Collections.unmodifiableList(employees);
+    }
+
+    private void validateNames(String... names) {
+        for (String name : names) {
+            if (!isAlpha(name)) {
+                throw new InvalidNameException(name);
+            }
+        }
     }
 
 }

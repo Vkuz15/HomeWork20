@@ -11,6 +11,8 @@ public interface EmployeeService {
 
     Employee add(String firstName, int department, int salary);
 
+    Employee add(String firstName, String lastName);
+
     Employee delete(String firstName, int department, int salary);
 
     Employee find(String firstName, int department, int salary);
